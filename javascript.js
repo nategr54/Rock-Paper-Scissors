@@ -11,6 +11,9 @@ function computerPlay() {
 let computerScore = 0
 let playerScore = 0
 
+const rock = document.querySelector('#rock');
+rock.addEventListener = ("click", playRound());
+
 // function that plays a single round 
 function playRound() {
     let playerSelection = prompt('Rock, Paper, or Scissors?')
@@ -63,14 +66,14 @@ function playRound() {
 }
 
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound()
-        if (playerScore === 3) {
-            return 'You win the match'
-        } else if (computerScore === 3) {
-            return 'You lose the match'
-        } else i--
-    }
+// function game() {
+//     for (let i = 0; i < 5; i++) {
+//         playRound()
+//         if (playerScore === 3) {
+//             return 'You win the match'
+//         } else if (computerScore === 3) {
+//             return 'You lose the match'
+//         } else i--
+//     }
     
-}
+// }
