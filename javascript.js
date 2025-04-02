@@ -1,26 +1,29 @@
 // function before game starts 
-function computerPlay() {
-    let random = Math.random()
-    if (random < .33) {
-        return "rock"
-    } else if (random <.66) {
-        return 'paper'
-    } else return 'scissors'
-}
+
 
 let computerScore = 0
 let playerScore = 0
 
-const rock = document.querySelector('#rock');
-rock.addEventListener = ("click", playRound());
 
 // function that plays a single round 
 function playRound() {
-    let playerSelection = prompt('Rock, Paper, or Scissors?')
+
+    function computerPlay() {
+        let random = Math.random()
+        if (random < .33) {
+            return "rock"
+        } else if (random <.66) {
+            return 'paper'
+        } else return 'scissors'
+    }
+    
+    let playerSelection = ['rock','paper','scissors']
     let computerSelection = computerPlay()
+
 
     if (computerSelection == "rock" && playerSelection == "rock") {
         console.log('Draw!')
+        resultsFeed.textContent('Draw!')
         return "draw"
     }
     else if (computerSelection == "paper" && playerSelection == "rock") {
@@ -66,14 +69,30 @@ function playRound() {
 }
 
 
-// function game() {
-//     for (let i = 0; i < 5; i++) {
-//         playRound()
-//         if (playerScore === 3) {
-//             return 'You win the match'
-//         } else if (computerScore === 3) {
-//             return 'You lose the match'
-//         } else i--
-//     }
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+
+
+rockButton.onclick = () => playRound('rock');
+paperButton.onclick = () => playRound('paper');
+scissorsButton.onclick = () => playRound('scissors');
+
+
+const container = document.querySelector("#container");
+
+const resultsFeed = document.createElement("div");
+resultsFeed.classList.add("resultsFeed");
+
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        playRound()
+        if (playerScore === 3) {
+            return 'You win the match'
+        } else if (computerScore === 3) {
+            return 'You lose the match'
+        } else i--
+    }
     
-// }
+}
