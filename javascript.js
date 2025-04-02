@@ -1,13 +1,10 @@
-// function before game starts 
-
-
-let computerScore = 0
-let playerScore = 0
+   let computerScore = 0
+   let playerScore = 0
 
 
 // function that plays a single round 
-function playRound() {
-
+function playRound(selection) {
+    
     function computerPlay() {
         let random = Math.random()
         if (random < .33) {
@@ -17,7 +14,7 @@ function playRound() {
         } else return 'scissors'
     }
     
-    let playerSelection = ['rock','paper','scissors']
+    let playerSelection = selection
     let computerSelection = computerPlay()
 
 
@@ -85,14 +82,14 @@ const resultsFeed = document.createElement("div");
 resultsFeed.classList.add("resultsFeed");
 
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound()
-        if (playerScore === 3) {
-            return 'You win the match'
-        } else if (computerScore === 3) {
-            return 'You lose the match'
-        } else i--
-    }
+// function game() {
+//     for (let i = 0; i < 5; i++) {
+//         playRound()
+//         if (playerScore === 3) {
+//             return 'You win the match'
+//         } else if (computerScore === 3) {
+//             return 'You lose the match'
+//         } else i--
+//     }
     
-}
+// }
