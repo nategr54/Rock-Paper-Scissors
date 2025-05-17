@@ -12,12 +12,16 @@ let computerScore = 0
 let playerScore = 0
 
 const rock = document.querySelector('#rock');
-rock.addEventListener = ("click", playRound());
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors')
+
 
 // function that plays a single round 
 function playRound() {
-    let playerSelection = prompt('Rock, Paper, or Scissors?')
+    let playerSelection = "rock"
     let computerSelection = computerPlay()
+
+    console.log(playerSelection, computerSelection)
 
     if (computerSelection == "rock" && playerSelection == "rock") {
         console.log('Draw!')
@@ -60,9 +64,7 @@ function playRound() {
         console.log("You Lose! Rock beats Scissors")
         computerScore++
         return 'lose'        
-    }
-    console.log(playerScore)
-    console.log(computerScore)
+    } else console.log('the score is not working')
 }
 
 
