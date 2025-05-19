@@ -14,49 +14,52 @@ let playerScore = 0
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors')
+const feed = document.querySelector('#feed')
 
+rock.addEventListener("click", () => playRound("rock"))
+paper.addEventListener("click", () => playRound("paper"))
+scissors.addEventListener("click", () => playRound("scissors"))
 
 // function that plays a single round 
-function playRound() {
-    let playerSelection = "rock"
+function playRound(x) {
+    let playerSelection = x
     let computerSelection = computerPlay()
-
     console.log(playerSelection, computerSelection)
 
     if (computerSelection == "rock" && playerSelection == "rock") {
-        console.log('Draw!')
-        return "draw"
+        feed.textContent = 'Draw!'
+               return "draw"
     }
     else if (computerSelection == "paper" && playerSelection == "rock") {
-        console.log("You Lose! Paper beats Rock")
+        feed.textContent="You Lose! Paper beats Rock"
         computerScore++
         return 'lose'
     }
     else if (computerSelection == "scissors" && playerSelection == "rock") {
-        console.log('You Win! Rock beats Scissors!')
+        feed.textContent = ('You Win! Rock beats Scissors!')
         playerScore++
         return 'win'
     }
     else if (computerSelection == "scissors" && playerSelection == "paper") {
-        console.log("You Lose! Scissors beat Paper")
+        feed.textContent = ("You Lose! Scissors beat Paper")
         computerScore++
         return 'lose'
     }
     else if (computerSelection == "paper" && playerSelection == "paper") {
-        console.log('Draw!')
+        feed.textContent = ('Draw!')
         return 'draw'
     }
     else if (computerSelection == "rock" && playerSelection == "paper") {
-        console.log('You Win! Paper beats Rock!')
+        feed.textContent = ('You Win! Paper beats Rock!')
         playerScore++
         return 'win'
     }
     else if (computerSelection == "scissors" && playerSelection == "scissors") {
-        console.log('Draw!')
+        feed.textContent = ('Draw!')
         return 'draw'
     }
     else if (computerSelection == "paper" && playerSelection == "scissors") {
-        console.log('You Win! Scissors beats Paper' )
+        feed.textContent = ('You Win! Scissors beats Paper' )
         playerScore++
         return 'win'
     }
